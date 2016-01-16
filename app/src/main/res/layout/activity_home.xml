@@ -24,6 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:tabGravity="fill"
+            android:alpha="1"
             app:tabMode="fixed" />
     </android.support.design.widget.AppBarLayout>
 
@@ -32,6 +33,18 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="550dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/hotel"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="550dp"
+            android:background="@drawable/gradient"/>
 
         <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
@@ -48,6 +61,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
+                    android:textColor="#FFFFFF"
                     android:text="Unlock 2,500 Starpoints"
                     android:textSize="30dp" />
 
@@ -58,6 +72,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginTop="5dp"
+                    android:textColor="#FFFFFF"
                     android:text="Earn with SPG Keyless and a regustered American Express Card. Terms apply. "
                     android:textSize="15dp" />
 
@@ -80,10 +95,11 @@
                         android:layout_margin="5dp"
                         android:background="#FFFFFF" />
 
-                    <Button
+                    <android.support.v7.widget.AppCompatButton
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/colorPrimary"
+                        android:background="@color/colorAccent"
+                        android:layout_margin="5dp"
                         android:text="SIGN IN"
                         android:textColor="#FFFFFF" />
 
