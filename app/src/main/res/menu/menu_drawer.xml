@@ -1,0 +1,71 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- group with single selected item so only one item is highlighted in the nav menu -->
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/home"
+            android:icon="@drawable/fab_background"
+            android:title="Home"/>
+        <item
+            android:id="@+id/profile"
+            android:icon="@drawable/fab_background"
+            android:title="Profile" />
+        <item
+            android:id="@+id/find_worker"
+            android:icon="@drawable/fab_background"
+            android:title="Find Connections" />
+
+        <item
+            android:id="@+id/connection_request"
+            android:icon="@drawable/fab_background"
+            android:title="Connection Requests" />
+
+        <item
+            android:id="@+id/bossPosition"
+            android:layout_gravity="bottom"
+            android:title="Position">
+
+            <menu>
+
+                <item
+                    android:id="@+id/createPosition"
+                    android:icon="@drawable/fab_background"
+                    android:title="Post Position" />
+
+                <item
+                    android:id="@+id/applied_workers"
+                    android:icon="@drawable/fab_background"
+                    android:title="Applied Workers" />
+            </menu>
+        </item>
+
+        <item
+            android:layout_gravity="bottom"
+            android:title="Company">
+            <menu>
+                <item
+                    android:id="@+id/create_company"
+                    android:icon="@drawable/fab_background"
+                    android:title="Create Company" />
+                <item
+                    android:id="@+id/find_company"
+                    android:icon="@drawable/fab_background"
+                    android:title="Find Company" />
+            </menu>
+        </item>
+
+        <item
+            android:layout_gravity="bottom"
+            android:title="Account">
+            <menu>
+                <item
+                    android:id="@+id/settings"
+                    android:icon="@drawable/fab_background"
+                    android:title="Settings" />
+                <item
+                    android:id="@+id/logout"
+                    android:icon="@drawable/fab_background"
+                    android:title="Log Out" />
+            </menu>
+        </item>
+    </group>
+</menu>
