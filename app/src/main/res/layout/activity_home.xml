@@ -43,7 +43,7 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="550dp"
+            android:layout_height="500dp"
             android:background="@drawable/gradient"/>
 
         <android.support.v4.widget.NestedScrollView
@@ -55,9 +55,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingTop="420dp">
+                android:paddingTop="350dp">
 
                 <TextView
+                    android:id="@+id/fadeTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -66,6 +67,7 @@
                     android:textSize="30dp" />
 
                 <TextView
+                    android:id="@+id/fadeBody"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
@@ -85,23 +87,110 @@
 
                     <SearchView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:layout_margin="5dp"
+                        android:queryHint="Destination, Hotel or Airport Code"
+
+                        android:iconifiedByDefault="false"
                         android:background="#FFFFFF" />
 
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:layout_margin="5dp"
-                        android:background="#FFFFFF" />
+                        android:background="#FFFFFF"
+                        android:visibility="gone"/>
 
-                    <android.support.v7.widget.AppCompatButton
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:orientation="horizontal">
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorAccent"
+                                android:textSize="15dp"
+                                android:text="Welcome"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="#FFFFFF"
+                                android:textSize="30sp"
+                                android:text="Sultan"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="#FFFFFF"
+                                android:textSize="15dp"
+                                android:text="Khan"/>
+
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="#FFFFFF"/>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="right"
+                                android:textColor="@color/colorAccent"
+                                android:textSize="15dp"
+                                android:text="Preffered Guest"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="right"
+                                android:textColor="#FFFFFF"
+                                android:textSize="30sp"
+                                android:text="0"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="#FFFFFF"
+                                android:gravity="right"
+                                android:textSize="15dp"
+                                android:text="STARPOINTS"/>
+
+
+                        </LinearLayout>
+
+
+
+                    </LinearLayout>
+                    <android.support.v7.widget.AppCompatButton
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
                         android:background="@color/colorAccent"
                         android:layout_margin="5dp"
                         android:text="SIGN IN"
-                        android:textColor="#FFFFFF" />
+                        android:textColor="#FFFFFF"
+                        android:visibility="gone"/>
 
                 </LinearLayout>
 
@@ -121,7 +210,7 @@
                             android:layout_height="20dp"
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="15dp"
-                            android:src="#FFFFFF" />
+                            android:src="@drawable/tag" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -145,7 +234,7 @@
                             android:layout_height="20dp"
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="15dp"
-                            android:src="#FFFFFF" />
+                            android:src="@drawable/nfc" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -153,6 +242,31 @@
                             android:layout_gravity="center_vertical"
                             android:layout_margin="10dp"
                             android:text="SPG KEYLESS"
+                            android:textColor="#FFFFFF"
+                            android:textSize="15dp" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ciscoCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="15dp"
+                            android:src="@drawable/wifi" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_margin="10dp"
+                            android:text="SPG WIFI"
                             android:textColor="#FFFFFF"
                             android:textSize="15dp" />
 
@@ -169,7 +283,7 @@
                             android:layout_height="20dp"
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="15dp"
-                            android:src="#FFFFFF" />
+                            android:src="@drawable/heart" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -193,7 +307,7 @@
                             android:layout_height="20dp"
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="15dp"
-                            android:src="#FFFFFF" />
+                            android:src="@drawable/brand" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -217,7 +331,7 @@
                             android:layout_height="20dp"
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="15dp"
-                            android:src="#FFFFFF" />
+                            android:src="@drawable/book" />
 
                         <TextView
                             android:layout_width="match_parent"

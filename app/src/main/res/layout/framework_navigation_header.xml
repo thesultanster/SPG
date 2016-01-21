@@ -2,19 +2,48 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="150dp"
+    android:background="@color/colorPrimaryDark"
+    android:paddingTop="20dp"
     android:orientation="vertical">
-    <ImageView
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/gradient_back_name"
-        android:background="@drawable/back"
-        android:scaleType="centerCrop" />
-    <TextView
-        android:id="@+id/fullName"
-        style="@style/TextAppearance.AppCompat.Subhead"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_margin="16dp"
-        android:textColor="@android:color/white" />
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/spg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="20dp"
+            android:textSize="30dp"
+            android:textColor="@android:color/white"
+            android:text="spg"/>
+
+        <TextView
+            android:id="@+id/fullName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_toRightOf="@+id/spg"
+            android:textSize="7dp"
+            android:textColor="@android:color/white"
+            android:text="Starwood\nPreferred\nGuests"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="20dp"
+
+            android:background="@color/colorAccent"
+            android:textColor="#FFFFFF"
+            android:layout_alignParentBottom="true"
+            android:text="SIGN IN"/>
+
+    </RelativeLayout>
+
+
+
 </FrameLayout>

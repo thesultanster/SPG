@@ -3,69 +3,23 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/home"
-            android:icon="@drawable/fab_background"
-            android:title="Home"/>
+
+            android:title="Home" />
         <item
-            android:id="@+id/profile"
-            android:icon="@drawable/fab_background"
-            android:title="Profile" />
+            android:id="@+id/book"
+            android:title="Book" />
         <item
-            android:id="@+id/find_worker"
-            android:icon="@drawable/fab_background"
-            android:title="Find Connections" />
+            android:id="@+id/my_account"
+            android:title="My Account" />
 
         <item
-            android:id="@+id/connection_request"
-            android:icon="@drawable/fab_background"
-            android:title="Connection Requests" />
+            android:id="@+id/settings"
+            android:title="Settings" />
+
 
         <item
-            android:id="@+id/bossPosition"
-            android:layout_gravity="bottom"
-            android:title="Position">
+            android:id="@+id/support"
+            android:title="Support" />
 
-            <menu>
-
-                <item
-                    android:id="@+id/createPosition"
-                    android:icon="@drawable/fab_background"
-                    android:title="Post Position" />
-
-                <item
-                    android:id="@+id/applied_workers"
-                    android:icon="@drawable/fab_background"
-                    android:title="Applied Workers" />
-            </menu>
-        </item>
-
-        <item
-            android:layout_gravity="bottom"
-            android:title="Company">
-            <menu>
-                <item
-                    android:id="@+id/create_company"
-                    android:icon="@drawable/fab_background"
-                    android:title="Create Company" />
-                <item
-                    android:id="@+id/find_company"
-                    android:icon="@drawable/fab_background"
-                    android:title="Find Company" />
-            </menu>
-        </item>
-
-        <item
-            android:layout_gravity="bottom"
-            android:title="Account">
-            <menu>
-                <item
-                    android:id="@+id/settings"
-                    android:icon="@drawable/fab_background"
-                    android:title="Settings" />
-                <item
-                    android:id="@+id/logout"
-                    android:icon="@drawable/fab_background"
-                    android:title="Log Out" />
-            </menu>
-        </item>
     </group>
 </menu>

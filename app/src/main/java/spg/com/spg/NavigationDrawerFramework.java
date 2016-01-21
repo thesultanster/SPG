@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -17,22 +18,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.parse.ParseUser;
-
-import cs.software.engineering.jobthirsty.Login;
-import cs.software.engineering.jobthirsty.R;
-import cs.software.engineering.jobthirsty.SettingsActivity;
-import cs.software.engineering.jobthirsty.applied_workers.AppliedWorkers;
-import cs.software.engineering.jobthirsty.company_page.CreateCompanyPage;
-import cs.software.engineering.jobthirsty.company_page.FindCompany;
-import cs.software.engineering.jobthirsty.connections.ConnectionRequest;
-import cs.software.engineering.jobthirsty.find_workers.FindWorker;
-import cs.software.engineering.jobthirsty.job_position.CreateJobPosition;
-import cs.software.engineering.jobthirsty.main_tab_menu.MainTabMenu;
-import cs.software.engineering.jobthirsty.profile.EmployeeProfileActivity;
-import cs.software.engineering.jobthirsty.profile.EmployerProfileActivity;
-
-public class NavigationDrawerFramework extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class NavigationDrawerFramework extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     //NAVIGATION DRAWER VARIABLES
     //TOOLBAR VARIABLES
@@ -54,17 +40,8 @@ public class NavigationDrawerFramework extends AppCompatActivity implements Navi
     public void setContentView(final int layoutResID) {
 
 
-        // Hide menu items if employee
-        if ( (Boolean) ParseUser.getCurrentUser().get("isBoss")) {
-            isEmployer = true;
-        }
+        mDrawerLayout = (DrawerLayout) getLayoutInflater().inflate(R.layout.framework_navigation_drawer, null);
 
-        // Your base layout here
-        if (isEmployer) {
-            mDrawerLayout = (DrawerLayout) getLayoutInflater().inflate(R.layout.framework_navigation_drawer, null);
-        } else {
-            mDrawerLayout = (DrawerLayout) getLayoutInflater().inflate(R.layout.framework_navigation_drawer_employee, null);
-        }
         mContent = (FrameLayout) mDrawerLayout.findViewById(R.id.content);
 
         // Setting the content of layout your provided to the content frame
@@ -73,26 +50,11 @@ public class NavigationDrawerFramework extends AppCompatActivity implements Navi
 
         // Setting header variables
         mHeaderLayout = getLayoutInflater().inflate(R.layout.framework_navigation_header, null);
-        String firstName = ParseUser.getCurrentUser().get("firstName").toString();
-        String lastName = ParseUser.getCurrentUser().get("lastName").toString();
-
-        final String temp = firstName +" " + lastName;
-        Log.d("name", temp);
-
-
-        this.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                // Update TextView here
-                TextView fullname = (TextView) mHeaderLayout.findViewById(R.id.fullName);
-                fullname.setText(temp);
-            }
-        });
 
 
         // Setting toolbar
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        if( toolbar != null )
+        if (toolbar != null)
             setSupportActionBar(toolbar);
 
         // listen for navigation events
@@ -106,13 +68,6 @@ public class NavigationDrawerFramework extends AppCompatActivity implements Navi
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_employee_profile, menu);
-
-        return true;
-    }
 
     // Navigation Drawer Code /===========================================================================
     //====================================================================================================
@@ -129,7 +84,6 @@ public class NavigationDrawerFramework extends AppCompatActivity implements Navi
         mDrawerActionHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                navigate(menuItem.getItemId());
             }
         }, DRAWER_CLOSE_DELAY_MS);
         return true;
@@ -165,66 +119,12 @@ public class NavigationDrawerFramework extends AppCompatActivity implements Navi
     }
 
 
-    // Navigation Logic Goes Here
-    private void navigate(final int itemId) {
-
-        Intent intent = new Intent();
-
-        switch(itemId){
-            case R.id.home:
-                intent = new Intent(this, MainTabMenu.class);
-                break;
-            case R.id.profile:
-                // If user exist and authenticated, send user to Welcome.class
-                //  Need to check flag to send user to appropriate activty (worker or boss)
-                boolean isBoss = (boolean) ParseUser.getCurrentUser().get("isBoss");
-
-                intent = isBoss ? new Intent(this, EmployerProfileActivity.class)
-                                : new Intent(this, EmployeeProfileActivity.class);
-
-
-                intent.putExtra("userId", ParseUser.getCurrentUser().getObjectId());
-                intent.putExtra("isYourself", true);
-                break;
-            case R.id.connection_request:
-                intent = new Intent(this, ConnectionRequest.class);
-                break;
-            case R.id.find_worker:
-                intent = new Intent(this, FindWorker.class);
-                break;
-            case R.id.createPosition:
-                intent = new Intent(this, CreateJobPosition.class);
-                break;
-            case R.id.applied_workers:
-                intent = new Intent(this, AppliedWorkers.class);
-                break;
-            case R.id.create_company:
-                intent = new Intent(this, CreateCompanyPage.class);
-                break;
-            case R.id.find_company:
-                intent = new Intent(this, FindCompany.class);
-                break;
-            case R.id.settings:
-                intent = new Intent(this, SettingsActivity.class);
-                break;
-            case R.id.logout:
-                ParseUser.logOut();
-                finish();
-                intent = new Intent(this, Login.class);
-                break;
-        }
-
-
-        startActivity(intent);
-    }
-
     //====================================================================================================
 
 
-    protected Toolbar getToolbar(){
-        return toolbar;
+    protected ActionBar getToolbar() {
+        return getSupportActionBar();
     }
-
 
 
 }
